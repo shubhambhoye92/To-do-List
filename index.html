@@ -10,14 +10,14 @@
 <body>
   <h1>Todo list</h1>
   <div id="todos">
-    <div id="todo-1">
+    <!-- <div id="todo-1">
       <h4>1. Take class</h4>
       <button onclick="deleteTodo(1)">Delete</button>
     </div>
     <div id="todo-2">
       <h4>2. Go out to eat</h4>
       <button onclick="deleteTodo(2)">Delete</button>
-    </div>
+    </div> -->
   </div>
   <div>
     <input id="inp" type="text">
@@ -25,7 +25,7 @@
   </div>
 
   <script>
-    let currentIndex = 3;
+    let ctr = 1;
 
     function addTodo() {
       const inputEl = document.getElementById("inp");
@@ -40,18 +40,17 @@
 
       // Create new todo div
       const newTodo = document.createElement('div');
-      newTodo.setAttribute("id", 'todo-' + currentIndex);
-
+      newTodo.setAttribute("id", 'todo-' + ctr);
       // Create new heading element
       const newHeading = document.createElement('h4');
-      newHeading.textContent = currentIndex + '. ' + todoText;
+      newHeading.textContent =  todoText;
 
       // Create new button element
       const newButton = document.createElement('button');
       newButton.textContent = 'Delete';
-      newButton.setAttribute("onclick", "deleteTodo(" + currentIndex + ")");
+      newButton.setAttribute("onclick", "deleteTodo(" + ctr + ")");
 
-      // Append elements to the new todo div
+      // Append elements to the new todo div  
       newTodo.appendChild(newHeading);
       newTodo.appendChild(newButton);
 
@@ -59,7 +58,7 @@
       parentEl.appendChild(newTodo);
 
       // Increment the index for the next todo item
-      currentIndex++;
+      ctr=ctr+1;
 
       // Clear the input field
       inputEl.value = '';
